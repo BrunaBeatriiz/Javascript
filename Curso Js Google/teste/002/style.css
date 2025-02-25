@@ -1,0 +1,87 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-color:whitesmoke ;
+
+    /*rgb(241, 238, 182*/
+}
+
+header > h1{
+    padding: 10px;
+    text-align: center;
+    color:rgb(71, 69, 41);
+    text-shadow: 2px 2px 4px rgba(66, 66, 66, 0.377);
+}
+
+section{
+    background-color:rgb(228, 227, 227);
+    width: 380px;
+    height: 250px;
+    margin: auto;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid rgba(119, 136, 153, 0.678);
+    box-shadow: 2px 2px 6px rgba(12, 12, 37, 0.363);
+    text-align:center;
+}
+
+#stylo > p{
+    padding: 4px;
+
+    font-size: 1.0em;
+}
+.cx{
+    padding: 2px;
+    border-radius: 4px;
+    width: 40px;
+}
+
+.cxp{
+    padding: 2px;
+    border-radius: 4px;
+    width: 140px;
+}
+
+#submit{
+    background-color: rgb(59, 59, 59);
+    padding: 6px;
+    color: whitesmoke;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.356);
+    border: 1px solid white;
+}
+
+#submit:hover{
+    background-color: rgb(158, 158, 158);
+    color: black;
+    font-weight: bolder;
+    border: 1px solid black;
+}
+
+footer{
+    color:rbg(41,59,77);
+    padding: 10px;
+    text-align: center;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+footer >p> a {
+    text-decoration: none;
+    color: black;
+}
+
+footer >p> a:hover {
+    text-decoration: none;
+    color: rgb(139, 139, 139);
+}
+
+
+h2{
+    font-size: 1.2em;
+}

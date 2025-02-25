@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora?</h1>
+    </header>
+    <section>
+        <div id="stylo">
+            <label for="inum1">
+                <input type="number" name="inum1" id="num1" placeholder="Digite um número:" class="campo">
+            </label>
+            <label for="inum2">
+                <input type="number" name="inum2" id="num2" placeholder="Digite um número:" class="campo">
+            </label>
+            <div id="but">
+                <p><input type="submit" value="+" onclick="somar()" class="button"></p>
+                <p><input type="submit" value="-" onclick="menos()" class="button"></p>
+                <p><input type="submit" value="*" onclick="vezes()" class="button"></p>
+                <p><input type="submit" value="/" onclick="div()" class="button"></p>
+            </div>
+        </div>
+        <div id="res">
+            
+        </div>
+        <div id="reset">
+            <p><input type="reset" value="AC" id="limpar" onclick="reset()"></p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; <a href="../../../../html-css/desafios/ex005/index.html"></a>BrunaBeatriz</p>
+    </footer>
+    <script src="js.js"></script>
+</body>
+</html>

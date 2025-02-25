@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NACIONALIDADE</title>
+</head>
+<body>
+    <h1>Verificador de Nacionalidade:</h1>
+    <P>Você nasceu no: <input type="text" name="pais" id="pais" >
+    <input type="button" value="Verificar" onclick="verificar()"></P>
+    <div id="res">
+
+    </div>
+    <script>
+        function verificar(){
+            var vpais = window.document.getElementById('pais');
+            var vres = window.document.getElementById('res');
+            var nac = (vpais.value);
+            if(nac == 'Brasil'){
+                vres.innerHTML = `Parabéns, você mora no <strong>${nac}</strong>, portanto, você é brasileiro!`;
+            }else{
+                vres.innerHTML = `Poxa :(, você mora no <strong>${nac}</strong>, portanto,  você é estrangeiro!`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+h1{
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.404);
+}
+
+#pai{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#icolor{
+    width: 60px;
+    height: 40px;
+    margin: 10px;
+}
+
+#button{
+    width: 120px;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid darkslategray;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.418);
+    border-radius: 4px;
+    background-color: rgb(243, 243, 243);
+    margin: 10px;
+}
+
+.progress{
+    height: 15px;
+    background-color: #777;
+    position: relative;
+}
+
+.progress .progress-bar{
+   position: absolute;
+   height: 100%;
+   background-color: #add555;
+   animation: progress-animation 6s infinite;
+}
+
+@keyframes progress-animation{
+    0% { width: 0%; }
+    
+    100% { width: 100%}
+    
+}
