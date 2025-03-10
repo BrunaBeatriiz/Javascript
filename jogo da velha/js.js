@@ -31,7 +31,7 @@ const comecaJogo = () => {
 
 const encerrarJogo = (empate)=>{
     if(empate){
-        msgVitoria.innerText = "Deu velha";
+        msgVitoria.innerText = "DEU VELHA!";
     }else{
         msgVitoria.innerHTML = vezCirculo? "<p> <strong>O</strong> VENCEU</p>": "<p> <strong>X</strong> VENCEU</p>";
     }
