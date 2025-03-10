@@ -6,53 +6,6 @@
     box-sizing: border-box;
 }
 
-/** body{
-    width: 100vw;
-    height: 100vh;
-    background-color: darkkhaki;
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-
-}
-
-#principal{
-    background-color: rgb(219, 214, 143);
-    width: 70vw;
-    height: 70vh;
-    display:flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-}
-
-#tabuleiro{
-    width: 60vw;
-    background-color: rgb(219, 211, 143);
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: space-between;
-    margin: 8px;
-    border: 2px solid darkkhaki;
-    border-radius: 6px;
-    box-shadow: 2px 2px 6px rgba(189, 183, 107, 0.514);
-    /* gap: 5px; */
-/* } 
-
-button{
-    padding: 10px;
-    width: 30%;
-    height: 60px;
-    margin: 2px 2px 2px 4px;
-    border-radius: 5px;
-    border: 0px;
-    box-shadow: 2px 2px 4px rgba(189, 183, 107, 0.596);
-} */ 
-
-
-
 body{
     background: linear-gradient(90deg,#45d09d,#2f946c,#247253,#1a503a);
     width: 100vw;
@@ -115,7 +68,7 @@ body{
 
 
 
-/* Garante que o conteúdo de ::before e ::after só apareça nas células com a classe .x */
+/* x nas celulas com .x */
 .celula.x::before, .celula.x::after {
     content: "";
     height: 12%;
@@ -124,9 +77,18 @@ body{
     position: absolute;
     box-shadow: 1px 1px 2px #e03e1988;
     border-radius: 8px;
+
+    /* ::before e ::after são usados para adicionar conteúdo visual antes ou depois do conteúdo real de um elemento.
+    No seu código, são usados para criar as linhas do "X" dentro da célula, sem a necessidade de adicionar elementos HTML extras. */
+
+    /* Os pseudo-elementos ::before e ::after permitem adicionar conteúdo visual sem modificar o HTML. No seu caso:
+
+    ::before cria uma linha do "X" (rotacionada em 45 graus).
+    ::after cria a outra linha (rotacionada em -45 graus).
+    Eles ajudam a formar o "X" dentro da célula, mantendo o código HTML limpo, sem precisar de elementos extras como <div> ou <span>. */
 }
 
-/* Aplica o X (com rotação) nas células com a classe .x */
+/* adiciona a rotação ao x */
 .celula.x::before {
     transform: rotate(45deg);
 }
@@ -135,8 +97,8 @@ body{
     transform: rotate(-45deg);
 }
 
-/* Aplica o efeito de hover, mas só se a célula não tiver .x ou .o */
-.tabuleiro.x .celula:not(.x):not(.o):hover::before {
+/* efeito hover que exibe um x */
+.tabuleiro.x .celula:not(.x):not(.o):hover::before,.tabuleiro.x .celula:not(.x):not(.o):hover::after {
     content: "";
     height: 12%;
     width: 80%;
@@ -147,29 +109,15 @@ body{
     transform: rotate(45deg); /* Formato da linha do "X" */
 }
 
+.tabuleiro.x .celula:not(.x):not(.o):hover::before {
+   transform: rotate(45deg);
+}
 .tabuleiro.x .celula:not(.x):not(.o):hover::after {
-    content: "";
-    height: 12%;
-    width: 80%;
-    background-color: #E03E19;
-    position: absolute;
-    box-shadow: 1px 1px 2px #e03e1988;
-    border-radius: 8px;
-    transform: rotate(-45deg); /* Formato da linha do "X" */
+   transform: rotate(-45deg);
 }
 
-/* As células com .o não devem exibir o "X" */
-.celula.o::before, .celula.o::after {
-    content: none;
-}
-.tabuleiro.o .celula:not(.x):not(.o):hover::after,.tabuleiro.o .celula:not(.x):not(.o):hover::before{
-    content:"" ;
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    background-color: antiquewhite;
-    border-radius: 50%;
-}
+
+/* adiciona um o nas classes .o */
 .celula.o::after,.celula.o::before{
     content:"" ;
     width: 70%;
@@ -178,7 +126,15 @@ body{
     background-color: antiquewhite;
     border-radius: 50%;
 }
-
+ /* efeito hoover que exibe um o  */
+.tabuleiro.o .celula:not(.x):not(.o):hover::after,.tabuleiro.o .celula:not(.x):not(.o):hover::before{
+    content:"" ;
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    background-color: antiquewhite;
+    border-radius: 50%;
+}
 
 .mensagem{
     display: none;
