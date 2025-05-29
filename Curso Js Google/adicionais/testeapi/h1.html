@@ -1,0 +1,93 @@
+
+
+  <h2>Buscar Herói</h2>
+  <input type="text" id="cxtexto" oninput="mostrarSugestoes()">
+  <button onclick="buscarPorNome()">Buscar</button>
+  <div id="sugestao"></div>
+  <div id="principal"></div>
+  <div id="resultado"></div>
+
+  <script>
+    let texto = document.getElementById('cxtexto');
+    const divPrincipal = document.getElementById("principal");
+    const divSegunda = document.getElementById("resultado");
+    const divSugestoes = document.getElementById("sugestao");
+    let herois = [];
+
+    async function buscarHerois() {
+      try {
+        const busca = await fetch("https://akabab.github.io/superhero-api/api/all.json");
+        herois = await busca.json(); // Armazena globalmente
+      } catch (erro) {
+        console.log(`Erro na requisição da API: ${erro}`);
+      }
+    }
+
+    function mostrarSugestoes() {
+      const letra = texto.value.toLowerCase().trim();
+      divSugestoes.innerHTML = "";
+
+      if (!letra) return;
+
+      const filtrados = herois.filter(h =>
+        h.name.toLowerCase().includes(letra)
+      ).slice(0, 10);
+
+      filtrados.forEach(h => {
+        const sugestao = document.createElement("div");
+        sugestao.textContent = h.name;
+        sugestao.onclick = () => {
+          texto.value = h.name;
+          divSugestoes.innerHTML = "";
+          mostrarHeroi(h);
+        };
+        divSugestoes.appendChild(sugestao);
+      });
+    }
+
+    function buscarPorNome() {
+      const nome = texto.value.toLowerCase().trim();
+      divSugestoes.innerHTML = "";
+      divSegunda.innerHTML = "";
+
+      const procurarHeroi = herois.find(h =>
+        h.name.toLowerCase() === nome
+      );
+
+      if (procurarHeroi) {
+        mostrarHeroi(procurarHeroi);
+      } else {
+        divSegunda.innerHTML = "<p>Herói não encontrado.</p>";
+      }
+    }
+
+    function mostrarHeroi(procurarHeroi) {
+      divSegunda.innerHTML = "";
+
+      const nome = document.createElement("h1");
+      nome.textContent = procurarHeroi.name;
+      divSegunda.appendChild(nome);
+
+      const foto = document.createElement("img");
+      foto.src = procurarHeroi.images.md;
+      divSegunda.appendChild(foto);
+
+      const detalhes = document.createElement("p");
+      detalhes.innerHTML = `
+        <h2>Biografia</h2>
+        <strong>Nome completo:</strong> ${procurarHeroi.biography.fullName}<br>
+        <strong>Alter ego:</strong> ${procurarHeroi.biography.alterEgos}<br>
+        <strong>Primeira aparição:</strong> ${procurarHeroi.biography.firstAppearance}<br>
+        <strong>Ocupação:</strong> ${procurarHeroi.work.occupation}<br><br>
+
+        <h2>Estatísticas de Poder</h2>
+        <strong>Inteligência:</strong> ${procurarHeroi.powerstats.intelligence}<br>
+        <strong>Força:</strong> ${procurarHeroi.powerstats.strength}<br>
+        <strong>Velocidade:</strong> ${procurarHeroi.powerstats.speed}<br>
+        <strong>Poder:</strong> ${procurarHeroi.powerstats.power}<br>
+        <strong>Combate:</strong> ${procurarHeroi.powerstats.combat}<br>
+      `;
+      divSegunda.appendChild(detalhes);
+    }
+
+    buscarHerois(); // Inicializa

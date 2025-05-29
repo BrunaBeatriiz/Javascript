@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teeste api</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="telas.css">
+</head>
+<body>
+    <div id="principal">
+        <input type="text" name="" placeholder="Digite o nome do herói:"   id="cxtexto" oninput=mostrarSugestoes()>
+        <button onclick=procurarHeroi()>Pesquisar</button>
+        <div id="sugestao"></div>
+        <div id="resultado"></div>
+    </div>
+</body>
+<script src="api.js"></script>
+</html>

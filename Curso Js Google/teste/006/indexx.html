@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Display com Texto</title>
+  <style>
+    .box {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .block {
+      display: block;
+      background-color: #e74c3c;
+      width: 300px;
+    }
+
+    .inline {
+      display: inline;
+      background-color: #3498db;
+    }
+
+    .inline-block {
+      display: inline-block;
+      background-color: #f39c12;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h2>display: block</h2>
+  <div class="box block">Esse é um bloco de texto com display <strong>block</strong>. Ele ocupa a largura toda e começa em uma nova linha.</div>
+  <div class="box block">Outro bloco separado, mesmo comportamento.</div>
+
+  <h2>display: inline</h2>
+  <p>
+    Aqui temos <span class="box inline">texto inline</span> dentro de um parágrafo. 
+    Ele <span class="box inline">fica na mesma linha</span> e só ocupa o espaço necessário.
+  </p>
+
+  <h2>display: inline-block</h2>
+  <p>
+    Veja como <span class="box inline-block">este texto</span> tem um tamanho fixo 
+    mas ainda <span class="box inline-block">fica lado a lado</span> com o resto.
+  </p>
+</body>
+</html>
+Purely from the HTML side:
+
+Use Semantic HTML: Use tags like <header>, <nav>, <main>, <article>, <section>, and <footer> to provide meaningful structure.
+Proper Heading Hierarchy: Use headings (<h1> to <h6>) correctly, making sure <h1> is used once per page for the main title, followed by <h2>, <h3>, etc.
+Meta Tags: Include relevant <meta> tags, such as description, keywords, and viewport, to provide metadata about the website.
+Alt Attributes on images: Use alt attributes for images to describe the content, improving accessibility and search engine understanding.
+On top of that:
+
+Internal Linking: Make sure to use internal links to connect content within your web site, helping search engines crawl and understand the site structure.
+Mobile-Friendly Design: Code your site and CSS with a mobile-first mindset. Ensuring the site is responsive and mobile-friendly to improve user experience and ranking on search engines.
+Fast Loading Times: Try to optimize images, use efficient code, and leverage caching to improve page load speeds. The faster the page loads, the bigger the advantage it’ll have against other similar results on the SERP.
+
+Cookies são pequenos pedaços de dados armazenados nos navegadores. Eles são usados principalmente para manter informações entre requisições HTTP, como autenticação de usuário, gerenciamento de sessões e rastreamento do comportamento do usuário.
+
+Por outro lado, o sessionStorage é projetado para armazenamento temporário e é acessível apenas durante a mesma sessão (ou seja, enquanto a janela ou aba do navegador estiver aberta). Os dados armazenados no sessionStorage são perdidos quando a janela do navegador é fechada.
+
+Por fim, o localStorage é semelhante ao sessionStorage, mas persiste mesmo quando a janela ou aba do navegador é fechada e reaberta. Ele fornece armazenamento de longo prazo para aplicações web. É muito semelhante aos cookies, no entanto, o localStorage possui limites de tamanho bem maiores do que os cookies, tornando-o uma alternativa muito melhor para armazenar grandes volumes de dados.
+Análise (parsing) do HTML
+O navegador lê o código HTML e constrói uma estrutura de árvore chamada DOM (Document Object Model).
+
+Análise do CSS e aplicação dos estilos
+Os arquivos CSS são carregados e interpretados, e os estilos são aplicados aos elementos do DOM, criando a chamada árvore de renderização.
+
+Cálculo da posição de cada elemento no layout da página
+O navegador determina onde e como cada elemento deve ser exibido na tela, levando em consideração margens, espaçamentos, tamanhos, etc.
+
+Pintura dos pixels na tela e organização em camadas
+O navegador desenha visualmente os elementos (cores, bordas, texto, imagens) e separa o conteúdo em camadas, se necessário.
+
+Composição final das camadas para renderizar o site na tela
+Todas as camadas são combinadas para exibir o site. Nessa etapa são considerados fatores como z-index, opacity, transform e outros efeitos visuais.
+
+Execução do código JavaScript
+Scripts são executados, podendo modificar o DOM ou os estilos, o que pode levar a novas renderizações (reflow/repaint).
+
+Carregamento de recursos assíncronos
+Recursos como imagens, fontes ou dados de APIs são carregados de forma assíncrona, e podem continuar sendo processados mesmo após a página estar visível.
+
+Unidade	Base de cálculo	Comportamento
+em	Tamanho do elemento pai	Pode acumular valores em elementos aninhados
+rem	Tamanho do elemento raiz (html)	Sempre constante, mais previsível
+Quando uma função é definida dentro de outra função, ela mantém acesso às variáveis e parâmetros da função externa, mesmo depois que a função externa já terminou sua execução.
+Essa ligação entre a função interna e o escopo da função externa é conhecida como "closure" (ou fechamento).
+
+📦 Pra que serve?
+Você pode usar closures para:
+
+Criar variáveis privadas, que só podem ser acessadas pela função interna.
+
+Criar objetos mais complexos, com acesso a um contexto rico e controlado, que não está disponível globalmente.
+
+7. APIs e Back-End básico
+Requisições com fetch, axios
+
+REST API
+
+JSON
+
+Métodos HTTP (GET, POST, PUT, DELETE)
+
+Postman / Insomnia para testar APIs

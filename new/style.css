@@ -1,0 +1,24 @@
+#cont-pai{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+#container{
+    border: 1px solid black;
+    display: flex;
+    flex-flow: row wrap;
+    width: 65%;
+    height: 60%;
+}
+
+.celula{
+    border: 1px solid black;
+    width: 10%;
+    height: 35px;
+}
+input{
+    width: 100%;
+    height: 30px;
+}

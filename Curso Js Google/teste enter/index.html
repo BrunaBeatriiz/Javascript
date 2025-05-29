@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Enter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="principal">
+        <h1>Olá, ao clicar no enter está tela mudará!</h1>
+    </div>
+    <div class="segunda">
+        <p>Agora você pode me ver :)</p>
+    </div>
+</body>
+<script>
+    let div = window.document.querySelector(".principal");
+    let secondDiv = window.document.querySelector(".segunda");
+
+    document.addEventListener("keydown", (event) => {
+        document.body.style.backgroundColor= 'white';
+        div.classList.replace("principal","new");
+        secondDiv.classList.replace("segunda","segundaNew");
+
+    });
+
+</script>
+</html>
