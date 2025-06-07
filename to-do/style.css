@@ -140,6 +140,7 @@ section#resultado >ul > li{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    border-bottom: 1px solid #06290f;
 }
 
 section#resultado >ul > li>div{
