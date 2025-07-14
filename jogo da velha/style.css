@@ -7,7 +7,8 @@
 }
 
 body{
-    background: linear-gradient(90deg,#45d09d,#2f946c,#247253,#1a503a);
+    /* background: linear-gradient(90deg,#45d09d,#2f946c,#247253,#1a503a); */
+    background-color: black;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -22,7 +23,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 60%;
-    height: 50%;
+    height: 40%;
    box-shadow: 0.5px 0.5px 4px rgba(255, 255, 255, 0.473);
 }
 
