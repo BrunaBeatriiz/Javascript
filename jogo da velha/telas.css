@@ -22,10 +22,12 @@
 
  
  @media screen and (min-width: 768px) and (max-width: 992px) {
+
+    
     
     .tabuleiro{
-        width: 40%;
-        height: 50%;
+        width:32%;
+        height: 52%;
     }  
     
    
@@ -75,10 +77,11 @@
      
  }
  @media screen and (min-width: 993px) {
+   
     
     .tabuleiro{
-        width: 35%;
-        height: 60%;
+        width: 28%;
+        height: 53%;
         
     }  
     
