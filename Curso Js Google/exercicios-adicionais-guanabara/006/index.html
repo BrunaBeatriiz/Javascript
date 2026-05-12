@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Display CSS - Comparação</title>
+  <style>
+    .box {
+      margin: 10px;
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .block {
+      display: block;
+      width: 150px;
+      height: 100px;
+      background: crimson;
+    }
+
+    .inline {
+      display: inline;
+      background: teal;
+      width: 100px;
+      height: 100px;
+    }
+
+    .inline-block {
+      display: inline-block;
+      width: 150px;
+      height: 100px;
+      background: darkorange;
+    }
+  </style>
+</head>
+<body>
+  <h2>display: block</h2>
+  <div class="box block">Bloco 1</div>
+  <div class="box block">Bloco 2</div>
+
+  <h2>display: inline</h2>
+  <span class="box inline">Inline 1</span>
+  <span class="box inline">Inline 2</span>
+
+  <h2>display: inline-block</h2>
+  <div class="box inline-block">Inline-Block 1</div>
+  <div class="box inline-block">Inline-Block 2</div>
+</body>
+</html>

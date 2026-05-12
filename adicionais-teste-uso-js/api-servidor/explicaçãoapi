@@ -1,0 +1,113 @@
+// Importa o framework Express, que facilita criar servidores web em Node.js
+const express = require("express");
+
+// Importa o CORS (Cross-Origin Resource Sharing), que permite que 
+// seu servidor aceite requisições vindas de outros domínios ou portas
+const cors = require("cors");
+
+// Cria a instância do servidor Express
+const app = express();
+
+// Define a porta em que o servidor vai rodar (ex.: http://localhost:3000)
+const PORT = 3000;
+
+// Habilita o CORS no servidor para aceitar requisições externas
+app.use(cors());
+
+// Permite que o servidor entenda requisições com corpo em JSON
+// Sem isso, req.body estaria indefinido em POST/PUT
+app.use(express.json());
+
+// "Banco de dados" temporário em memória, um array de objetos
+// Cada objeto representa um usuário com id, nome, idade e email
+// OBS: Essa lista não persiste se o servidor for reiniciado
+let usuarios = [
+    { id:1, nome:"Maria Lima", idade: 21, email: "maria@gmail.com" },
+    { id:2, nome:"Matheus", idade: 22, email: "matheus@gmail.com" }
+];
+
+/* 
+================= ROTAS =================
+Rotas são os "endpoints" da API. Cada rota responde a um tipo de requisição:
+- GET: buscar dados
+- POST: criar dados
+- PUT: atualizar dados
+- DELETE: remover dados
+*/
+
+/* Rota GET /usuarios
+   - Retorna todos os usuários do array 'usuarios' em formato JSON
+   - Exemplo: fetch("http://localhost:3000/usuarios")
+*/
+app.get("/usuarios", (req,res) => {
+    res.json(usuarios);
+});
+
+/* Rota GET /usuarios/:id
+   - Busca um usuário específico pelo 'id'
+   - req.params.id pega o valor do id passado na URL
+   - Se o usuário não existir, retorna erro 404
+   - Exemplo: fetch("http://localhost:3000/usuarios/1")
+*/
+app.get("/usuarios/:id", (req,res) => {
+    const id = Number(req.params.id); // converte string para número
+    const usuario = usuarios.find(u => u.id === id);
+
+    if(!usuario) return res.status(404).json({erro:"Usuário não encontrado"});
+    res.json(usuario);
+});
+
+/* Rota POST /usuarios
+   - Cria um novo usuário
+   - req.body contém os dados enviados em JSON (nome, idade, email)
+   - O novo usuário recebe um id gerado com Date.now()
+   - Retorna o usuário criado com status 201
+   - Exemplo: fetch("http://localhost:3000/usuarios", { method: "POST", body: JSON.stringify({nome:"Bruna", idade:21, email:"bruna@mail.com"}) })
+*/
+app.post("/usuarios", (req,res) => {
+    const novoUsuario = {
+        id: Date.now(),
+        nome: req.body.nome,
+        idade: req.body.idade,
+        email: req.body.email
+    };
+    usuarios.push(novoUsuario);
+    res.status(201).json(novoUsuario);
+});
+
+/* Rota PUT /usuarios/:id
+   - Atualiza um usuário existente
+   - req.params.id é o id do usuário a ser atualizado
+   - req.body contém os novos dados (nome, idade ou email)
+   - Se o usuário não existir, retorna erro 404
+   - Retorna o usuário atualizado
+*/
+app.put("/usuarios/:id", (req,res) => {
+    const id = Number(req.params.id);
+    const index = usuarios.findIndex(u => u.id === id);
+
+    if(index === -1) return res.status(404).json({erro:"Usuário não encontrado"});
+
+    // Atualiza apenas os campos enviados
+    usuarios[index] = {...usuarios[index], ...req.body};
+    res.json(usuarios[index]);
+});
+
+/* Rota DELETE /usuarios/:id
+   - Remove um usuário pelo id
+   - Filtra o array 'usuarios' para excluir o usuário
+   - Retorna status 204 (No Content), sem corpo
+*/
+app.delete("/usuarios/:id", (req,res) => {
+    const id = Number(req.params.id);
+    usuarios = usuarios.filter(u => u.id !== id);
+    res.status(204).end();
+});
+
+/* Inicia o servidor
+   - O app escuta requisições na porta definida
+   - console.log mostra a URL para acessar a API no navegador
+*/
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em https://localhost:${PORT}`);
+});

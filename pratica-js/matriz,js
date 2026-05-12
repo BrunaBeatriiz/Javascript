@@ -1,0 +1,107 @@
+let matriz = [[10,21,32,43],
+             [20,31,42,53],[
+              30,41,52,63],  
+             [40,51,62,73]];
+
+console.table(matriz);
+
+function somar (){
+    let somaLinha = [];
+    let soma = 0;
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            soma+=(matriz[i][j]);
+        }
+        somaLinha.push(soma);
+        soma = 0;
+    }
+    console.log(somaLinha)
+}
+
+function somaColuna () {
+
+    let somaColuna = [0,0,0,0];
+
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            somaColuna[j]+=(matriz[i][j]);
+        }
+    }
+    console.log(somaColuna);
+
+}
+
+somar();
+somaColuna();
+
+function somarDiagonal() {
+    let soma = 0;
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            if(j === i){
+                soma+=matriz[i][j];
+            }
+        }
+    }
+    console.log(soma);
+}
+
+somarDiagonal();
+
+const maiorElemento = () => {
+    let maior = matriz[1][1];
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            if(matriz[i][j] > maior){
+                maior = matriz[i][j];
+            }
+        }
+    }
+    console.log(maior);
+}
+
+maiorElemento();
+
+const linhaPorColuna = () => {
+    let matrizTransposta = [];
+
+    for(let i =0; i < 4;i++){
+        matrizTransposta[i] = [];
+        for(let j =0; j < 4;j++){
+            matrizTransposta[i][j]= matriz[j][i];
+        }
+    }
+    console.log(matrizTransposta);
+    console.table(matrizTransposta);
+}
+linhaPorColuna();
+
+
+const somaAcimaDiagonal = () => {
+    let soma = 0;
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            if(j > i){
+                soma += matriz[i][j]
+            }
+        }
+    }
+    console.log(soma);
+   
+}
+somaAcimaDiagonal();
+
+function condicao () {
+    let condicao = [];
+    for(let i =0; i < 4;i++){
+        for(let j =0; j < 4;j++){
+            if(matriz[i][j] % 2 === 0){
+                condicao.push(matriz[i][j]);
+            }
+        }
+    }
+    console.log(condicao)
+}
+
+condicao();
+

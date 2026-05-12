@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Procure aqui seu filme:</h1>
+    <input type="text" id="inputFilme" placeholder="Digite aqui o nome do filme:">
+    <button id="buscar">Buscar</button>
+    <div id="resultado"></div>
+    <script>
+        const API_KEY = "8755c35b";
+        let input = document.getElementById("inputFilme");
+        let button = document.getElementById("buscar");
+        let resultado = document.getElementById("resultado");
+
+
+        button.addEventListener("click", () => {
+            const filme = input.value.trim();
+            if (!filme) {
+                resultado.innerHTML = "<p>Digite o nome de um filme!</p>";
+                return;
+            }
+
+            resultado.innerHTML = "<p>Buscando</p>";
+
+            fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${filme}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.Response === "False") {
+                        resultado.innerHTML = "<p>Filme não encontrado!</p>";
+                        return;
+                    }
+
+                    // 🔹 Envolve todas as divs dentro de um container
+                    const filmesHTML = `
+      <div class="container">
+        ${data.Search.map(f => `
+          <div class="card">
+            <h3>${f.Title} (${f.Year})</h3>
+            <img src="${f.Poster !== "N/A" ? f.Poster : "https://via.placeholder.com/100x150"}" alt="${f.Title}">
+          </div>
+        `).join("")}
+      </div>
+    `;
+
+                    resultado.innerHTML = filmesHTML;
+                })
+                .catch(erro => {
+                    resultado.innerHTML = "<p>Erro na requisição</p>";
+                    console.error(erro);
+                });
+
+        })
+    </script>
+</body>
+
+</html>

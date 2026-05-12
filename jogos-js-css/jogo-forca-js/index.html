@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+       <h1>JOGO DA FORCA</h1>
+       <select name="" id="categoria">
+        <option value="" selected>Escolha sua categoria</option>
+        <option value="animais">Animais</option>
+        <option value="comidas">Comidas</option>
+        <option value="objetos">Objetos</option>
+        <option value="cores">Cores</option>
+        <option value="profissoes">Profissões</option>
+        <option value="lugares">Lugares</option>
+        <option value="paises">Paises</option>
+        <option value="palavrasComplexas">Palavras Complexas</option>
+    </select>
+        <p id="palavra"></p>
+        <input type="text" name="" id="letra">
+        <p id="historico"></p>
+        <button onclick="iniciarJogo()" style="margin-top: 8px;">Iniciar</button>
+        <button onclick="verificar()">Verificar</button>
+       
+    </main>
+    <script src="js.js"></script>
+</body>
+</html>
+
