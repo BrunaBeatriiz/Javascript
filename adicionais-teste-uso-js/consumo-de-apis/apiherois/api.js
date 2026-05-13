@@ -125,4 +125,4 @@ buscarHerois();
 
 // catch(erro): Em caso de erro (ex: problemas de rede ou se a API não estiver disponível), o erro será capturado e impresso no console.
 
-
+//ooi
